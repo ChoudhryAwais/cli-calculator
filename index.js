@@ -1,30 +1,35 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
-const todoList = [];
-let loop = true;
-while (loop) {
-    let options = await inquirer.prompt([
-        {
-            name: "todoOptions",
-            message: "Select from below:-",
-            type: "list",
-            choices: ["Add new item", "Todo List"]
-        },
-    ]);
-    if (options.todoOptions === "Add new item") {
-        let todoItem = await inquirer.prompt([
-            {
-                name: "item",
-                message: "Enter the todo item",
-                type: "string",
-            },
-        ]);
-        todoList.push(todoItem.item);
-    }
-    else {
-        todoList.forEach(element => {
-            console.log(element);
-        });
-        loop = false;
-    }
+let calcu = await inquirer.prompt([
+    {
+        name: "number1",
+        message: "Enter first number?",
+        type: "number",
+    },
+    {
+        name: "number2",
+        message: "Enter second number?",
+        type: "number",
+    },
+    {
+        name: "operator",
+        message: "Enter your operator?",
+        type: "list",
+        choices: ["+", "-", "*", "/"]
+    },
+]);
+if (calcu.operator === "+") {
+    console.log("Result is: ", parseInt(calcu.number1) + parseInt(calcu.number2));
+}
+else if (calcu.operator === "-") {
+    console.log("Result is: ", parseInt(calcu.number1) - parseInt(calcu.number2));
+}
+else if (calcu.operator === "*") {
+    console.log("Result is: ", parseInt(calcu.number1) * parseInt(calcu.number2));
+}
+else if (calcu.operator === "/") {
+    console.log("Result is: ", parseInt(calcu.number1) / parseInt(calcu.number2));
+}
+else {
+    console.log("Invalid option");
 }

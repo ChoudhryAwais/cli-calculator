@@ -1,6 +1,6 @@
 {
-  "name": "todo-list-v01",
-  "version": "1.0.0",
+  "name": "cli-calculator-v01",
+  "version": "1.0.8",
   "description": "",
   "main": "index.js",
   "type": "module",
